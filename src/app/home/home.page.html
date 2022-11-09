@@ -1,28 +1,31 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      Lista de Empresarios
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
+  <ion-input [(ngModel)]="filtro" placeholder="introduce los datos de busqueda">
+  </ion-input>
   <ion-grid>
     <ion-row>
       <ng-container *ngFor="let user of users | async ">
 
-        <ion-col *ngIf="user.name.first.includes(filtro) || filtro == '' " size-xl="2" size-lg="2" size-md="4"
-          size-sm="6" size-xs="12">
+        <ion-col *ngIf="user.full_name.includes(filtro) || filtro == '' " size-xl="2" size-lg="2" size-md="4"
+          size-sm="4" size-xs="6">
           <ion-card>
-            <ion-avatar>
-              <img [src]="user.picture.medium">
-            </ion-avatar>
-            <h1>{{user.full_name}} </h1>
             <ion-card-content>
-              Lorem fistrum a wan pecador torpedo pecador a wan te voy a borrar el cerito la caidita tiene musho peligro
-              hasta luego Lucas quietooor. Va usté muy cargadoo ahorarr fistro de la pradera. Ese pedazo de jarl
-              apetecan
-              mamaar a wan.
+              <ion-avatar>
+                <img src="https://picsum.photos/200/300?random={{user.id}}">
+              </ion-avatar>
+              <h1>{{user.full_name}} </h1>
+              <ion-text color="medium">
+                <p>Company: {{user.company}}</p>
+                <p>Net worth of company: {{user.net_worth}}</p>
+                <p>Industry type: {{user.industry_type}}</p>
+              </ion-text>
             </ion-card-content>
           </ion-card>
         </ion-col>
@@ -30,10 +33,5 @@
       </ng-container>
     </ion-row>
   </ion-grid>
-
-
-
-
-
 
 </ion-content>
