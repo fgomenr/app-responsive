@@ -1,3 +1,4 @@
+
 #container {
   text-align: center;
 
@@ -26,15 +27,22 @@
   text-decoration: none;
 }
 
+ion-input {
+  background-color: whitesmoke;
+  position: fixed;
+}
+ion-col{
+  margin-top: 25px;
+}
 ion-avatar {
-
-margin:auto;
-
-
+  margin: auto;
 }
 ion-text {
+  text-align: center;
+}
 
-text-align: center;
-
-
+@media screen and (orientation: portrait) {
+  ion-input {
+    display: none;
+  }
 }
